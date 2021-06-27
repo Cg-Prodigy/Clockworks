@@ -2,6 +2,7 @@
 import pygame as py
 import math
 import time
+import random
 from pygame.locals import *
 py.init()
 
@@ -47,24 +48,27 @@ class Clockwork:
         self.x4=self.x+math.cos(self.omega+hours)*(self.rad*1/2)
         self.y4=self.y+math.sin(self.omega+hours)*(self.rad*1/2)
 
-
+#  utility functions
+def randColor():
+    r,g,b= random.randrange(0, 255),random.randrange(0, 255),random.randrange(0, 255)
+    return r,g,b
 
 #  clock variables
 x= s_tuple[0]/2
 y=s_tuple[1]/2
-color2=(32,178,170)
+color2=randColor()
 rad=150
 t_clock=Clockwork(x,y,rad,color2,SCREEN)
 
 #  seconds variable
-color1= (0,255,255)
+color1= randColor()
 s_hand=Clockwork(x,y,rad,color1,SCREEN)
 
 #  minute hand variables
-color3= (255,10,168)
+color3= randColor()
 m_hand=Clockwork(x,y,rad,color3,SCREEN)
 #  hour hand variables
-color4= (110, 50,230)
+color4= randColor()
 h_hand=Clockwork(x,y,rad,color4,SCREEN)
 # main loop
 while running:
