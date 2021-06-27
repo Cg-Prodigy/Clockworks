@@ -52,9 +52,10 @@ class Clockwork:
     def hour_hand(self):
         py.draw.line(self.screen, self.color,
                      (self.x, self.y), (self.x4, self.y4), 3)
-        hours = time.localtime().tm_hour/(math.pi*3)
+        hours = time.localtime().tm_hour
         self.x4 = self.x+math.cos(self.omega+hours)*(self.rad*1/2)
         self.y4 = self.y+math.sin(self.omega+hours)*(self.rad*1/2)
+        return hours
 
 #  utility functions
 
